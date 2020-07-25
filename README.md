@@ -8,3 +8,5 @@ Then the computer picks the optoin it wants to play.
 Then it checks to see who won.
 
 It will then print out the winner.
+
+If there is a tie, it will call the beginning function again to for a rematch. 

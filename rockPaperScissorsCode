@@ -1,0 +1,78 @@
+import sys
+import random
+
+def getUserChoice():
+    try:
+        userChoiceNumber = int(input("If you want to choose paper, press 1. If you want scissors, press 2. If you want rock, press 3 : "))
+
+        if userChoiceNumber == 1:
+            userChoice = "Paper"
+        elif userChoiceNumber == 2:
+            userChoice = "Scissors"
+        elif userChoiceNumber == 3:
+            userChoice = "Rock"
+
+        return(userChoice)
+
+    except:
+        raise error
+
+def getComputerChoice():
+    try:
+        computerChoiceNumber = random.randint(1,3)
+        
+        if computerChoiceNumber == 1:
+            computerChoice = "Paper"
+        elif computerChoiceNumber == 2:
+            computerChoice = "Scissors"
+        elif computerChoiceNumber == 3:
+            computerChoice = "Rock"
+
+        return(computerChoice)
+        
+    except:
+        raise error
+
+def beginningCode():
+    try:
+        print(f"Let's play a game of rock paper scissors!")
+        finalUser = getUserChoice()
+        finalComputer = getComputerChoice()
+        checkForWinner(finalUser, finalComputer)
+    except:
+        raise error
+
+def checkForWinner(finalUser, finalComputer):
+    try:
+        if finalComputer == "Rock" and finalUser == "Scissors":
+            print(f"I won. I picked rock and you picked scissors")
+        elif finalComputer == "Rock" and finalUser == "Paper":
+            print(f"You won. I picked rock and you picked paper.")
+        elif finalComputer == "Scissors" and finalUser == "Rock":
+            print(f"You won. I picked scissors and you picked rock.")
+        elif finalComputer == "Scissors" and finalUser == "Paper":
+            print(f"I won. I picked scissors and you picked paper.")
+        elif finalComputer == "Paper" and finalUser == "Scissors":
+            print(f"You won. I picked paper and you picked scissors")
+        elif finalComputer == "Paper" and finalUser == "Rock":
+            print(f"I won. I picked paper and you picked rock.")
+        elif finalComputer == finalComputer:
+            print("We tied. Let's try again!")
+            beginningCode()
+    except:
+        raise error
+
+    
+
+
+if __name__ == "__main__":
+    try:
+        beginningCode()
+
+    except Exception as error:
+        e_type, e_object, e_traceback = sys.exc_info()
+        print(f"{e_type}, {e_object}")
+
+    finally:
+        print(f":)")
+
